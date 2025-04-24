@@ -138,13 +138,13 @@ function Projects(props) {
               rel="noopener noreferrer"
               className={`${
                 props.background ? 'text-white' : 'text-black'
-              } active:opacity-80 flex items-center gap-2 font-bold hover:text-blue-500 text-[clamp(1rem,1.2vw,40px)]`}
+              } active:opacity-80 flex items-center gap-2 font-bold hover:text-blue-500 text-[clamp(1.2rem,1.8vw,40px)]`}
               onMouseEnter={() => hoverIn(id)}
               onMouseLeave={() => hoverIn(id)}
             >
               Code
               <img
-                className="w-[clamp(1rem,1.2vw,40px)]"
+                className="w-[clamp(1.2rem,1.8vw,40px)]"
                 src={hover ? gitHover : gitCodeIcon}
                 alt="icon"
               />
@@ -159,11 +159,11 @@ function Projects(props) {
               onMouseLeave={() => demoIn(id)}
               className={`${
                 props.background ? 'text-white' : 'text-black'
-              } active:opacity-80 flex items-center gap-2 font-bold hover:text-blue-500 text-[clamp(1rem,1.2vw,40px)]`}
+              } active:opacity-80 flex items-center gap-2 font-bold hover:text-blue-500 text-[clamp(1.2rem,1.8vw,40px)]`}
             >
               Live Demo
               <img
-                className="w-[clamp(1rem,1.2vw,40px)]"
+                className="w-[clamp(1.2rem,1.8vw,40px)]"
                 src={demo ? NextHover : LiveDemoIcon}
                 alt="icon"
               />
