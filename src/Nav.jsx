@@ -2,6 +2,7 @@ import React from 'react';
 import icon from './assets/mainIcon.png';
 import menu from './assets/three-dot.png';
 import exit from './assets/exit.png';
+import exitMenu from './assets/no.png';
 // import exitWhiteIcon from './assets/whiteExit.png';
 import exitWhiteIcon from './assets/logout.png';
 import whiteDots from './assets/dots.png';
@@ -143,9 +144,9 @@ function Nav(props) {
         {/* whiteDots */}
         <div className=" z-10">
           <img
-            className="w-6 cursor-pointer active:opacity-60 z-10 relative transition-colors duration-300"
+            className="w-[8vw] cursor-pointer active:opacity-60 z-10 relative transition-colors duration-300"
             onClick={menuBtn}
-            src={menuStatus ? exitWhiteIcon : dotsIcon}
+            src={menuStatus ? exitMenu : dotsIcon}
             alt="menu"
           />
 
@@ -156,34 +157,34 @@ function Nav(props) {
           >
             <div className="p-6"></div>
             <div className="relative h-[100%]">
-              <div className="shadow-xl shadow-[#00000048] absolute left-1 top-5 right-2 rounded-2xl p-2  bg-white flex flex-col gap-2">
+              <div className="shadow-xl shadow-[#00000048] absolute left-1 top-5 right-3 rounded-2xl p-3 py-10  bg-[#ffffff] flex flex-col gap-2">
                 <a
-                  className="font-semibold text-2xl active:ml-3 active:opacity-80 transition-all duration-75 "
+                  className="font-semibold text-[clamp(1rem,6vw,25px)] active:ml-3 active:opacity-80 transition-all duration-75 "
                   href="#MainPage"
                   onClick={menuBtn}
                 >
-                  Home
+                  🏠 Home
                 </a>
                 <a
-                  className="font-semibold text-2xl active:ml-3 active:opacity-80 transition-all duration-75 "
+                  className="font-semibold text-[clamp(1rem,6vw,25px)] active:ml-3 active:opacity-80 transition-all duration-75 "
                   href="#AboutMe"
                   onClick={menuBtn}
                 >
-                  About
+                  ℹ️ About
                 </a>
                 <a
-                  className="font-semibold text-2xl active:ml-3 active:opacity-80 transition-all duration-75 "
+                  className="font-semibold text-[clamp(1rem,6vw,25px)] active:ml-3 active:opacity-80 transition-all duration-75 "
                   href="#projects"
                   onClick={menuBtn}
                 >
-                  Projects
+                  🛠️ Projects
                 </a>
                 <a
-                  className="font-semibold text-2xl active:ml-3 active:opacity-80 transition-all duration-75 "
+                  className="font-semibold text-[clamp(1rem,6vw,25px)] active:ml-3 active:opacity-80 transition-all duration-75 "
                   href="#contact"
                   onClick={menuBtn}
                 >
-                  Contact
+                  📬 Contact
                 </a>
               </div>
             </div>
