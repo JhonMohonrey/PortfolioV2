@@ -8,7 +8,7 @@ function Foot(props) {
         className={`
         } w-full max-w-screen-2xl flex justify-between items-center px-2 flex-col md:flex-row `}
       >
-        <p className="text-[clamp(1.2rem,2vw,40px)] font-semibold text-white">
+        <p className="text-[clamp(1.2rem,2vw,40px)] font-semibold text-white text-center md:text-start">
           Copyright © {new Date().getFullYear()} All rights reserved
         </p>
         <a

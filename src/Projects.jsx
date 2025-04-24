@@ -113,7 +113,7 @@ function Projects(props) {
           <p
             className={`${
               props.background ? 'text-white' : 'text-black'
-            } text-center font-bold text-2xl flex items-center gap-2 hover:text-blue-500 cursor-pointer  md:mt-0 select-none`}
+            } text-center font-bold text-[clamp(1.5rem,2.2vw,40px)] flex items-center gap-2 hover:text-blue-500 cursor-pointer  md:mt-0 select-none`}
           >
             {title}
             <img
