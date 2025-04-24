@@ -31,7 +31,7 @@ function Projects(props) {
     {
       img: `${Panpie}`,
       title: `Panpie Demo`,
-      info: `Crafted with ReactJS for a seamless experience and SCSS for a sleek design, discover your dream car and elevate your journeys. Browse our inventory and contact us today for a test drive.`,
+      info: `PanPie is a professionally developed pizza ordering website, built using ReactJS for a dynamic user experience and SCSS for refined, maintainable styling. Users can seamlessly explore the menu and place orders effortlessly.`,
       isFlip: false,
       isHover: false,
       demo: false,
