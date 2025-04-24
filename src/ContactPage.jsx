@@ -38,7 +38,7 @@ function ContactPage(props) {
       <div
         className={`${
           props.background ? 'bg-[#28283c]' : 'bg-white'
-        } w-full max-w-screen-2xl z-20 py-8 md:py-10 md:px-5 my-20 md:my-50`}
+        } w-full max-w-screen-2xl z-20 py-8 md:py-10 md:px-5 my-20 md:my-50 px-2`}
       >
         <p className="text-blue-500 font-bold text-[clamp(1rem,5vw,25px)] md:text-[clamp(1rem,1.8vw,50px)] select-none">
           Contact
