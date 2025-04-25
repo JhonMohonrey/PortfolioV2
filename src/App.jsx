@@ -11,14 +11,6 @@ import Foot from './Foot';
 
 function App(props) {
   let [darkMode, setDarkMode] = React.useState(false);
-  const defaultContainer = () => {
-    return (
-      <div className="border-3 border-black bg-yellow-300 h-96 flex items-center justify-center">
-        <p className="font-bold text-2xl">Default Page</p>
-      </div>
-    );
-  };
-
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   }, []);
@@ -35,13 +27,6 @@ function App(props) {
           darkMode ? 'bg-white' : 'bg-[#28283c]'
         }`}
       >
-        {/* <button
-          onClick={bgColor}
-          className={`text-white cursor-pointer active:opacity-80 rounded-full p-3 flex items-center gap-4 relative bg-[#000000] `}
-        >
-          <img className="w-[1.5vw]" src={whiteIcon} alt="icon" />
-          <img className="w-[1.5vw]" src={darkIcon} alt="icon" />
-        </button> */}
         <div className="rounded-full p-1 relative">
           <div
             className={`absolute bg-black rounded-full left-0 right-0 top-0 bottom-0  ${
@@ -69,11 +54,6 @@ function App(props) {
       <Projects background={darkMode} id="projects" />
       <ContactPage background={darkMode} id="contact" />
       <Foot />
-      {/* {defaultContainer()}
-      {defaultContainer()}
-      {defaultContainer()}
-      {defaultContainer()}
-      {defaultContainer()} */}
     </div>
   );
 }

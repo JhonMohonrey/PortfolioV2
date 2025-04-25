@@ -1,29 +1,63 @@
 import React from 'react';
 import icon from './assets/mainIcon.png';
 import menu from './assets/three-dot.png';
-import exit from './assets/exit.png';
 import exitMenu from './assets/no.png';
-// import exitWhiteIcon from './assets/whiteExit.png';
-import exitWhiteIcon from './assets/logout.png';
 import whiteDots from './assets/dots.png';
 
 function Nav(props) {
-  console.log('bg color:', props.background);
+  // State to track if the menu is open or closed
   let [menuStatus, setMenuStatus] = React.useState(false);
+
+  // Options for the regular (desktop) menu
+  let [options, setOptions] = React.useState([
+    { data: 'Home', link: '#MainPage' },
+    { data: 'About', link: '#AboutMe' },
+    { data: 'Projects', link: '#projects' },
+    { data: 'Contact', link: '#projects' },
+  ]);
+
+  // Options for the mobile menu with emojis for better visual cues
+  let [mobileOptions, setMobileOptions] = React.useState([
+    { data: '🏠 Home', link: '#MainPage' },
+    { data: 'ℹ️ About', link: '#AboutMe' },
+    { data: '🛠️ Projects', link: '#projects' },
+    { data: '📬 Contact', link: '#contact' },
+  ]);
+
+  // Function to render mobile menu links dynamically
+  const RenderMobileOptions = () => {
+    return mobileOptions.map((item) => {
+      return (
+        <a
+          key={item.data}
+          className="font-semibold text-[clamp(1rem,6vw,25px)] active:ml-3 active:opacity-80 transition-all duration-75 "
+          href={item.link}
+          onClick={menuBtn}
+        >
+          {item.data}
+        </a>
+      );
+    });
+  };
+
+  // Function to render regular (desktop) menu links dynamically
+  const RenderOptions = () => {
+    return options.map((item) => {
+      return (
+        <a
+          key={item.data}
+          href={item.link}
+          className={`${
+            props.background ? 'text-white' : 'text-black'
+          } text-[clamp(0.8rem,1.2vw,22px)] font-bold hover:text-blue-500 active:opacity-80 transition-colors duration-300`}
+        >
+          {item.data}
+        </a>
+      );
+    });
+  };
+
   const windowsRender = () => {
-    const waveAnimation = {
-      animation: 'wave 2s ease-in-out infinite',
-    };
-    const waveKeyframes = `
-    @keyframes wave {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-  `;
     return (
       <div className="flex items-center justify-center">
         <div className="flex-1 flex items-center gap-2 ">
@@ -35,37 +69,7 @@ function Nav(props) {
             src={icon}
             alt="Icon"
           />
-          {/* <style>
-            {`@keyframes float 
-            {0%, 100% {transform: translateY(0);}
-            50% {transform: translateY(-4px);}}`}
-          </style>
-          <style>{waveKeyframes}</style>{' '}
-          <p className="font-bold cursor-pointer active:opacity-80 select-none text-xl text-[#000d1b] hover:text-blue-400 flex justify-center items-center">
-            <span style={{ ...waveAnimation, animationDelay: '0s' }}>M</span>
-            <span style={{ ...waveAnimation, animationDelay: '0.2s' }}>O</span>
-            <span style={{ ...waveAnimation, animationDelay: '0.4s' }}>H</span>
-            <span style={{ ...waveAnimation, animationDelay: '0.6s' }}>O</span>
-            <span style={{ ...waveAnimation, animationDelay: '0.8s' }}>N</span>
-            <span
-              className="text-blue-400"
-              style={{ ...waveAnimation, animationDelay: '1s' }}
-            >
-              R
-            </span>
-            <span
-              className="text-blue-400"
-              style={{ ...waveAnimation, animationDelay: '1.2s' }}
-            >
-              E
-            </span>
-            <span
-              className="text-blue-400"
-              style={{ ...waveAnimation, animationDelay: '1.4s' }}
-            >
-              Y
-            </span>
-          </p> */}
+
           <p
             className={`${
               props.background ? 'text-white' : 'text-black'
@@ -75,40 +79,8 @@ function Nav(props) {
           </p>
         </div>
 
-        <div className="flex-1 flex justify-end gap-5">
-          <a
-            href="#MainPage"
-            className={`${
-              props.background ? 'text-white' : 'text-black'
-            } text-[clamp(0.8rem,1.2vw,22px)] font-bold hover:text-blue-500 active:opacity-80 transition-colors duration-300`}
-          >
-            Home
-          </a>
-          <a
-            href="#AboutMe"
-            className={`${
-              props.background ? 'text-white' : 'text-black'
-            } text-[clamp(0.8rem,1.2vw,22px)] font-bold hover:text-blue-500 active:opacity-80 transition-colors duration-300`}
-          >
-            About
-          </a>
-          <a
-            href="#projects"
-            className={`${
-              props.background ? 'text-white' : 'text-black'
-            } text-[clamp(0.8rem,1.2vw,22px)] font-bold hover:text-blue-500 active:opacity-80 transition-colors duration-300`}
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className={`${
-              props.background ? 'text-white' : 'text-black'
-            } text-[clamp(0.8rem,1.2vw,22px)] font-bold hover:text-blue-500 active:opacity-80 transition-colors duration-300`}
-          >
-            Contact
-          </a>
-        </div>
+        {/* Links */}
+        <div className="flex-1 flex justify-end gap-5">{RenderOptions()}</div>
       </div>
     );
   };
@@ -158,52 +130,23 @@ function Nav(props) {
             <div className="p-6"></div>
             <div className="relative h-[100%]">
               <div className="shadow-xl shadow-[#00000048] absolute left-1 top-5 right-3 rounded-2xl p-3 py-10  bg-[#ffffff] flex flex-col gap-2">
-                <a
-                  className="font-semibold text-[clamp(1rem,6vw,25px)] active:ml-3 active:opacity-80 transition-all duration-75 "
-                  href="#MainPage"
-                  onClick={menuBtn}
-                >
-                  🏠 Home
-                </a>
-                <a
-                  className="font-semibold text-[clamp(1rem,6vw,25px)] active:ml-3 active:opacity-80 transition-all duration-75 "
-                  href="#AboutMe"
-                  onClick={menuBtn}
-                >
-                  ℹ️ About
-                </a>
-                <a
-                  className="font-semibold text-[clamp(1rem,6vw,25px)] active:ml-3 active:opacity-80 transition-all duration-75 "
-                  href="#projects"
-                  onClick={menuBtn}
-                >
-                  🛠️ Projects
-                </a>
-                <a
-                  className="font-semibold text-[clamp(1rem,6vw,25px)] active:ml-3 active:opacity-80 transition-all duration-75 "
-                  href="#contact"
-                  onClick={menuBtn}
-                >
-                  📬 Contact
-                </a>
+                {RenderMobileOptions()}
               </div>
             </div>
           </div>
         </div>
 
         <div
-          className={` absolute left-0 right-0 top-0 bottom-0 bg-black opacity-40  ${
+          className={` absolute left-0 right-0 top-0 bottom-0 bg-black opacity-50 ${
             menuStatus ? 'block' : 'hidden'
           }`}
-        >
-          x
-        </div>
+        ></div>
       </div>
     );
   };
 
   return (
-    // bg-[#28283c]
+    // bg-[#28283c] default Color
     <div
       className={`flex justify-center ${
         props.background ? 'bg-[#28283c]' : 'bg-[#ffffff]'
@@ -219,9 +162,5 @@ function Nav(props) {
       </div>
     </div>
   );
-}
-
-{
-  /* <a href="#projects">Projects</a> */
 }
 export default Nav;
